@@ -1,5 +1,12 @@
 # async-agent-runtime
 
+[![Python](https://img.shields.io/badge/python-3.13.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.141.1-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-2.13.4-E92063)](https://docs.pydantic.dev/)
+[![uv](https://img.shields.io/badge/uv-0.12.1-DE5FE9)](https://docs.astral.sh/uv/)
+[![pytest](https://img.shields.io/badge/pytest-9.1.1-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 A small async runtime for LLM tool calling. It sends a task to a model, runs the tools the
 model asks for, feeds the results back and repeats until the model answers. Every step is
 recorded in a trace.
@@ -12,10 +19,19 @@ This is a single tool-calling loop, not a multi-agent system.
 - Limits on iterations and total tokens (when the model reports usage).
 - Runs can be cancelled; running tools are cancelled with them.
 
+## Tech stack
+
+- Python 3.13.14
+- FastAPI and Uvicorn
+- Pydantic and pydantic-settings
+- httpx for OpenAI-compatible model requests
+- uv for dependency management
+- pytest and pytest-asyncio
+
 ## Run
 
-Requires [uv](https://docs.astral.sh/uv/) 0.12.1 and an OpenAI-compatible endpoint with tool
-calling, e.g. Ollama.
+Requires Python 3.13.14, [uv](https://docs.astral.sh/uv/) 0.12.1, and an OpenAI-compatible
+endpoint with tool calling, e.g. Ollama.
 
 ```
 uv sync
